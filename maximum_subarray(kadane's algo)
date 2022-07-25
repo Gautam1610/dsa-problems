@@ -13,3 +13,35 @@ Brute Force =
         return result;  
     }
     
+    Optimised Approach =
+    Kadane's Algorithm
+    class Solution {
+public:
+    bool checkForAllNegative(vector <int> &nums){
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]>0) return false;
+        }
+        return true;
+    }
+    int maxSubArray(vector<int>& nums) {
+        int currentSum=0;
+        int maxSum=0;
+        if(checkForAllNegative(nums)){
+            int specialCase=INT_MIN;
+            for(int i=0;i<nums.size();i++){
+                if(nums[i]>specialCase){
+                    specialCase=nums[i];
+                }
+            }
+            return specialCase;
+        }
+        for(int i=0;i<nums.size();i++){
+            currentSum+=nums[i];
+            maxSum=max(maxSum,currentSum);
+            if(currentSum<0){
+                currentSum=0;
+            }
+        }
+        return maxSum;
+    }
+};
