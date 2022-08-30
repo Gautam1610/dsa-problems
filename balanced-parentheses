@@ -15,7 +15,7 @@ bool isValid(string s) {
            }
            else{
                if(!st.empty()){
-                   if(match(st.top()),ch){
+                   if(match(st.top(),ch)){
                        st.pop();
                    }
                    else{
@@ -27,7 +27,7 @@ bool isValid(string s) {
                }
            }
        }
-       if(!st.empty){
+       if(!st.empty()){
                return false;
            }
            else{
