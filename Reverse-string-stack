@@ -1,0 +1,19 @@
+Reverse string using stack
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    string s="gautam";
+    stack <char> st;
+    for(int i=0;i<s.length();i++){
+        st.push(s[i]);
+    }
+    int i=0;
+    while(!st.empty()){
+        s[i]=st.top();
+        st.pop();
+        i++;
+    }
+    cout<<"Reversed =="<<s;
+    return 0;
+}
