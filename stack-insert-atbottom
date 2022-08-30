@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+void insertBottom(int element,stack <int> &st,int count ,int size){
+    if(count==size){
+        st.push(element);
+        return;
+    }
+    int num=st.top();
+    st.pop();
+    insertBottom(element,st,count+1,size);
+    st.push(num);
+}
+
+int main() {
+    // Write C++ code here
+    stack <int> st;
+    int num;
+    cout<<"Enter elements(5)";
+    cin>>num;
+    while(num!=-1){
+        st.push(num);
+        cin>>num;
+    }
+    int x;
+    cout<<"element to insert at bottom";
+    cin>>x;
+    insertBottom(x,st,0,st.size());
+    while(!st.empty()){
+        cout<<st.top()<<" ";
+        st.pop();
+    }
+    return 0;
+}
